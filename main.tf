@@ -136,7 +136,13 @@ resource "aws_vpc" "prod-vpc" {
      network_interface_id = aws_network_interface.web-server-nic.id
    }
 
-   user_data = file("file.sh")
+   user_data = <<-EOF
+                 #!/bin/bash
+                 sudo yum install httpd -y
+                 sudo systemctl start httpd
+                 sudo systemctl enable httpd
+                 sudo echo "<h1> TEST <h1>" >> /var/www/html/index.html
+                 EOF
 
    tags = {
      Name = "web-server"
