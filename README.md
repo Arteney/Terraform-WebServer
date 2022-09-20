@@ -1,10 +1,11 @@
-## In this project, GitHub Actions is used to create CI/CD that builds and push Docker image to Amazon ECR, then fills in the new image ID in the Amazon ECS task definition and deploy Amazon ECS task definition.
+## Documentation
+In this project, GitHub Actions is used to create CI/CD that builds and push Docker image to Amazon ECR, then fills in the new image ID in the Amazon ECS task definition and deploy Amazon ECS task definition.
 
 * Code that run this CI/CD is located at /.github/workflows
 * Actions secrets are used to store sensitive repository secrets.
 * GitHub Actions is used for both, stage and production.
 
-## On AWS, there is two different VPCs, one that is used for stage, and other one for production.
+On AWS, there is two different VPCs, one that is used for stage, and other one for production.
 
 ## Each VPC have:
 ## Two public subnets, each one in different availability zone. This is used for: 
